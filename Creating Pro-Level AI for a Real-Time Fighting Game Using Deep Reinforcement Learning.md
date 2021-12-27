@@ -32,5 +32,14 @@
 ### Self-Play Curriculum with Diverse Styles
 
 - 다른 battle style에 대한 agent를 만들어 서로 대전하게 하는 self-play 기법 적용
+
 - battle style을 aggressive, balanced, defensive로 나누고 해당 battle style에 대해 reward shaping 적용
-  - ​
+
+  - |                  | Aggressive | Balanced | Defensive |
+    | ---------------- | ---------- | -------- | --------- |
+    | Time penalty     | 0.008      | 0.004    | 0.0       |
+    | HP ratio         | 5:5        | 5:5      | 6:4       |
+    | Distance Penalty | 0.002      | 0.0002   | 0.0       |
+
+    ​
+

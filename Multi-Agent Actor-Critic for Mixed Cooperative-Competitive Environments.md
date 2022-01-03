@@ -30,17 +30,17 @@
 
 #### Multi-Agent Actor Critic
 
-![Overview of our multi-agent decentralized actor, centralized critic approach](paper_images/MADDPG_image1.PNG)
+![Overview of our multi-agent decentralized actor, centralized critic approach](paper_images/MADDPG_image1.png)
 
 - centralized training with decentralized execution의 구조를 가지고 있기 때문에 training 단계에서 policies를 학습 할 때 extra information 활용 가능
 - Q-learning에서 training 과 test 단계에 다른 추가 information을 포함하는 것이 적절하지 않기 때문에 다른 agents의 policies information을 critic에 추가하여 actor-critic 구조를 간단하게 확장
 
-![Object function](paper_images/MADDPG_image2.PNG)
+![Object function](paper_images/MADDPG_image2.png)
 
 - 목적함수는 다음과 같은 구조를 가짐
 - $Q_i^\pi(x, a_1, ..., a_N)$ 은 모든 agents의 actions과 state x(x = o_1, ..., o_N)을 입력으로 가지는 centralized action-value function
 
-![Object function](paper_images/MADDPG_image3.PNG)
+![Object function](paper_images/MADDPG_image3.png)
 
 - 이를 continuous 환경의 deterministic policy로 변환하면 다음과 같은 목적함수가 됨
 

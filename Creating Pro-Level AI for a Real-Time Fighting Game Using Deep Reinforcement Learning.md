@@ -1,5 +1,7 @@
 ## Creating Pro-Level AI for a Real-Time Fighting Game Using Deep Reinforcement Learning
 
+##### NC Soft, https://arxiv.org/pdf/1904.03821.pdf
+
 ### Introduction
 
 강화학습은 Atari와 같은 PVE(player versus environment), Go나 Chess와 같은 PVP(player versus player) 와 같이 다양한 게임 장르로 확장되고 있으며, 최근에는 StarCraft2와 Quake3, Dota2와 같이 복잡한 비디오 게임의 PVP에 포커싱.
@@ -73,4 +75,4 @@
   | Blind Match | 2-0        | 1-2       | 0-2       |
   | Total       | 11-1 (92%) | 5-7 (42%) | 5-5 (50%) |
 
-  ​
+  

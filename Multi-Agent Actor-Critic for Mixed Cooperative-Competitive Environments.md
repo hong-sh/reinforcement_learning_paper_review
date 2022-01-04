@@ -17,11 +17,13 @@
 
 ### Related Work
 
-- ​
+- multi-agent RL domain에서 independently learning agents에 대한 한계점 지적
 
 ### Background
 
-- Markov Games (MDP) 설명
+- Markov Games 설명
+  - 본 논문에서는 Markov decision process의 extension으로 Partially observable Markov Game 고려
+  - 모든 N agents에 대한 set of Observation(O_1, ..., O_N), set of Action(A_1, ..., A_N),  그리고 transition function T로 인한 Reward(R_1, ..., R_N)으로 정의
 - Q-Learning and Deep Q-Networks (DQN) 설명
 - Policy Gradient (PG) Algorithms 설명
 - Deterministic Policy Gradient (DPG) Algorithms 설명

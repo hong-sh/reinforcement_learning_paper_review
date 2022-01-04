@@ -17,7 +17,7 @@
 
 ### Related Work
 
-- 
+- ​
 
 ### Background
 
@@ -46,9 +46,24 @@
 
 #### Inferring Policies of Other Agents
 
+![original loss function, Q function](paper_images/MADDPG_image6.PNG)
 
+- 목적함수를 최대화 하기 위한 loss function과 Q function으로 agents의 actions들을 고려한 식을 제안하는데, 실 생활에서는 다른 agents의 action(policy)을 알 수 없을 수 있기 때문에 이를 근사할 수 있는 방법 제시
 
-### Experiments
+![approximate of other agents loss function](paper_images/MADDPG_image4.PNG)
+
+![approximate of other agents Q function](paper_images/MADDPG_image5.PNG)
+
+- policy parameter phi를 통해 근사 된 다른 agent의 policy를 가지고 entropy regularizer term을 이용한 policy gradient loss 식 제안
+
+#### Agents with Policy Ensembles
+
+- 경쟁적 multi-agent 환경에서 경쟁 agent의 전략이 바뀜으로 인해 학습하고자 하는 agent의 전략에 대한 policy 변경이 overfitting으로 인해 불안정할 수 있음
+- K개의 sub-policy를 두어 episode 마다 랜덤하게 policy를 선택하고 이를 ensemble 하는 방식 활용
+
+![Ensemble objective function](paper_images/MADDPG_image7.PNG)
+
+### Experiments 
 
 - $\pi_{skill} , \pi_{move, target}, Q_{skill}, Q_{move, target}$ 을 학습하는 LSTM-based network 구성
 - ACER(Actor-Critic with Experience Replay) 알고리즘 활용 
@@ -60,4 +75,4 @@
 - 인간과의 공정함을 위해 action 마다 평균 230ms의 delay를 줌
 - Destroyer class 간 대전만 진행하고 skill set을 인간이 정한 것으로 맞추게끔 함
 
-- 
+- ​

@@ -65,14 +65,37 @@
 
 ### Experiments 
 
-- $\pi_{skill} , \pi_{move, target}, Q_{skill}, Q_{move, target}$ 을 학습하는 LSTM-based network 구성
-- ACER(Actor-Critic with Experience Replay) 알고리즘 활용 
-  - A3C(Asynchronous Advantage Actor-Critic)의 off-policy 버전
-  - off-policy가 가능하기 위해 Importance sampling 기법 적용
+#### Environments 
+
+- 실험 환경으로 OpenAI MPE 환경 활용 (https://github.com/openai/multiagent-particle-envs)
+- Multi-agent Particle Environment
+  - Cooperative Comunication
+    Speaker가 지정한 landmark로 listner가 이동
+  - Predator-Prey
+    Predator agent group이 Prey group을 잡아먹는 환경
+  - Cooperative navigation
+    set of L의 landmarks를 agent 끼리 상대 위치를 확인하며 이동
+  - Physical Deception
+    협력적 agent group 과 적대적 agent group 이 서로 N개의 landmark를 선점하기 위해 이동
+
+#### Comparison to Decentralized RL Methods
+
+- MADDPG method가 DDPG, REINFORCE, Actor-Critic, TRPO, DQN 보다 좋은 성능을 냄
+
+![comparison graph](paper_images/MADDPG_image8.png)
+
+#### Effect of Learning Policies of Other Agents
+
+- True policy 활용과 approximating policy에 따른 성능 저하가 거의 없음
+
+![comparison between true policy and approximating policy](paper_images/MADDPG_image9.PNG)
+
+####Effect of Training with Policy Ensembels
+
+- 학습 대상 agent가 ensembel policy, adversary가 single policy일 때 nomalized reward 가 가장 높음
+
+![nomalized reward of ensembel and single policy](paper_images/MADDPG_image10.PNG)
 
 ### Conclusions and Future Work
 
-- 인간과의 공정함을 위해 action 마다 평균 230ms의 delay를 줌
-- Destroyer class 간 대전만 진행하고 skill set을 인간이 정한 것으로 맞추게끔 함
-
-- ​
+- 모든 agent에 대한 Q function은 input space 에 대한 linear 한 성능 저하를 일으킬 수 있기 때문에 neighborhood agents에 대한 modular Q function에 대한 향후 연구 진행

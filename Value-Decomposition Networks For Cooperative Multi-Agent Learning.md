@@ -63,5 +63,12 @@
 - Fetch 환경에서 network weights parameter 공유가 lazy problem에 대해 가장 이득
 - IL(indivisual learner), V(value decomposition), S(shared weights), Id(role information), L(lower-level communication), H(higher-level communication), C(centralization) 구조를 각각 조합하여 실험
 
+#### The Learned Q-Decomposition
+
+- Fetch 환경에서 $Q^~_1$, $Q^~_2$ function은 각 agent1, agent2 에 대한 분해된 Q function 이고 이는 각 agent에 대한 reward로 반영되는데 sum으로 이루어진 total Q function을 통해 이를 공유할 수 있다는 것을 Figure-6를 통해 확인 가능
+
 ### Conclusions
 
+- 본 논문은 오직 하나의 joint reward가 주어진 상황에서의 cooperative multi-agent reinforcement learning에 대한 연구 진행
+- value-decomposition network는 복잡한 문제를 local의, 빠른 sub-problem으로 자율적으로 분해할 수 있음
+- 향후 team-size로 스케일을 키운, 복잡한 문제에 대한 연구 진행

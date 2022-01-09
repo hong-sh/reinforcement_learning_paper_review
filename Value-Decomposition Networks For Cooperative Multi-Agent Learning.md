@@ -20,7 +20,48 @@
 
 ### A Deep-RL Architecture for Coop-MARL
 
+- 본 논문에서는 agents 간 부가적인 decomposed를 할 수 있는 joint-action value function을 만들고 활용
+
+![VDN Q function image](paper_images/VDN_image1.png)
+
+- $Q^~_i$ 은 오직 agents의 local observation만 활용하고 agents 의 Q 합을 최대화 하는 joint action을 취하는 central arbiter와 동일
+-  learning parameter를 줄이기 위한 방법으로, agent 간 특정 network를 공유
+- 이는 agent 불변성(invariance)를 늘리고 lazy agent problem을 피하기 위함
+- 특정 시스템을 최적화 하기 위해 agent의 role information을 제공
+  1-hot encoding을 통해 identity 정보를 observationr과 concatenate 
+
 ### Experiments
+
+#### Agents
+
+![Value-Decomposition Individual Architecture image](paper_images/VDN_image2.png)
+
+- Experience replay data를 활용하는 LSTM based Dueling DQN 알고리즘 활용
+- Convolutional network를 활용하지 않고 observation정보를 바로 fully connected 하여 linear layer 활용
+- LSTM + ReLU activation function, Adam optimizer 활용
+- Q(s, a) = V(s) + A(s, a)로 advantage function 사용
+
+#### Environments
+
+![2D grid Environments](paper_images/VDN_image3.png)
+
+- 2D grid world 기반 환경
+- observation : 작은 시야를 가지는 3 x 5 x 5 RGB channel 
+- action : step forward / backward / left / right, rotate left / right, use beam, stand still로 8개
+  - Switch
+    좁은 복도를 이용하여 다른 쪽의 goal 로 이동하는 게임
+  - Fetch
+    two agents가 같은object를 집어 point에 가져다 놓는 게임
+  - Checker
+    lemon(orange), apple(green) 칸을 지정하고 한 agent는 apple칸에 10점 lemon칸에 -10점, 다른 agent는 lemon에 1점, apple에 -1점에 대한 reward를 받는 게임
+
+#### Results
+
+![Experiments Results](paper_images/VDN_image4.png)
+
+- value-decomposition architecture를 활용한 것이 가장 성능이 좋음
+- Fetch 환경에서 network weights parameter 공유가 lazy problem에 대해 가장 이득
+- IL(indivisual learner), V(value decomposition), S(shared weights), Id(role information), L(lower-level communication), H(higher-level communication), C(centralization) 구조를 각각 조합하여 실험
 
 ### Conclusions
 

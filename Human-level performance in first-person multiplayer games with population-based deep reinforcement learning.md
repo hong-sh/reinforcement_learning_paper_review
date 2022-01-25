@@ -31,7 +31,7 @@
 - 또한 tow-tier reinforcement learning problem으로 생각할 수 있는데, inner의 경우 objective function inner를 최적화 하고 outer의 경우 meta-game, 즉 internal reward와 hyperparameter를 최적화 하기 위한 최적화 진행
 ![objective function of inner and outer](paper_images/CTF_image3.PNG)
 - inner optimisation은 RL을 활용하고 outer optimisation은 Population Based Training 활용
-- generalisation performance를 위해 3가지 type의 agents를 구성하여 map을 생성하고 tournament를 진행하며 학습 수행
+- generalisation performance를 위해 3가지 type의 agents를 구성하여 map을 생성하고 tournament를 진행하며 학습 수행 
   
 ### Result and Analysis
 

@@ -14,7 +14,7 @@
 - feature에 대해 multi-scale representation으로 long-term temporal reasoning 이 가능한 구조 제안
 
 ### Agent's Policy
-![objective function of inner and outer](paper_images/CTF_image4.PNG)
+- ![objective function of inner and outer](paper_images/CTF_image4.PNG)
 - agent's policy를 human player와 동일한 인터페이스를 가지도록 raw RGB pixel input과 game pad action 활용
 - agent의 policy parameter는 external memory를 활용한 multi-timescale recurrent neural network 고려
 - 일반적인 hierarchical RL agent가 명시적인 hierarchical goals or skill에 대한 구조인 반면 본 논문의 agent는 좀 더 hierarchical temporal representation과 sequential data를 위한 recurrent latent variable model과 연관이 있음
@@ -29,10 +29,19 @@
 - 본 논문에서는 parallel하게 다른 policy를 가지는 agent들에 대한 population을 가지고 학습을 진행
 - 이를 internal rewards 및 hyperparameter를 학습하기 위한 meta-optimise 방법으로도 활용
 - 또한 tow-tier reinforcement learning problem으로 생각할 수 있는데, inner의 경우 objective function inner를 최적화 하고 outer의 경우 meta-game, 즉 internal reward와 hyperparameter를 최적화 하기 위한 최적화 진행
-![objective function of inner and outer](paper_images/CTF_image3.PNG)
+- ![objective function of inner and outer](paper_images/CTF_image3.PNG)
 - inner optimisation은 RL을 활용하고 outer optimisation은 Population Based Training 활용
 - generalisation performance를 위해 3가지 type의 agents를 구성하여 map을 생성하고 tournament를 진행하며 학습 수행 
   
 ### Result and Analysis
-
+- ![Progression During Training](paper_images/CTF_image6.PNG)
+- FTW은 population based training을 통한 학습의 Elo rating 결과
+- Self-play + RS는 Self-play에 reward shaping 기법(internel reward)을 추가한 학습 결과
+- Self-play는 오직 winning signal만을 reward로 준 학습 결과
+- 아래 세 그래프는 population based training을 통한 세 가지 hyperparameter에 대한 평가 그래프
+- ![Knowledge representation and behavioural analysis](paper_images/CTF_image7.PNG)
+- 본 논문에서는 agent가 "Do I have the flag?", "Did I see my teammate recently?" "Will I be in the opponent's base soon?"과 같은 state representation을 학습할 수 있는지 평가
+-  (a)에서 agent의 internal state를 2D t-SNE embedding을 통해 상황 별로 conjunction하여 나타낸 결과
+-  어떤 상황에서 어떤 뉴런이 활성화 됐는지를 clustering 하여 상황들을 군집화
+  
 ### Conclusion

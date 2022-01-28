@@ -43,5 +43,14 @@
 - 본 논문에서는 agent가 "Do I have the flag?", "Did I see my teammate recently?" "Will I be in the opponent's base soon?"과 같은 state representation을 학습할 수 있는지 평가
 -  (a)에서 agent의 internal state를 2D t-SNE embedding을 통해 상황 별로 conjunction하여 나타낸 결과
 -  어떤 상황에서 어떤 뉴런이 활성화 됐는지를 clustering 하여 상황들을 군집화
-  
-### Conclusion
+- ![Progresseion of agent during training](paper_images/CTF_image8.PNG)
+- 450k game을 학습하는 동안 이를 FTW agent의 행위와 knowledge representation을 3단계로 나누어 볼 수 있음
+1. Knowledge : single neuron responses를 통한 game knowledge 학습 단계
+2. Relative Internal Reward Magnitude : 13개의 game point event에 대한 중요도 학습 단계
+3. Behavior Probability and Memory Usage : 게임을 승리하기 위한 전략 학습 및 방문했던 지역에 대한 기억 학습 단계
+
+### Conclusion and Future work
+- 향후 다양한 agent population을 관리할 수 있는 프레임워크 포함
+- agent 학습 시 game state에 대한 고도의 representation이 필요함을 발견
+- human-level의 성능을 가지는 agent를 만들기 위한 novel techniques 제안
+- 대규모 multi-agent 환경에서 고수준의 지능 행위 창발에 대한 학습 수행

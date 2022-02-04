@@ -10,8 +10,8 @@
 
 ### Policy Optimization
 
-#### Auto-Curricula And Emergent Behavior
+### Auto-Curricula And Emergent Behavior
 
-#### Evaluation
+### Evaluation
 
-#### Discussion and Future work.
+### Discussion and Future work

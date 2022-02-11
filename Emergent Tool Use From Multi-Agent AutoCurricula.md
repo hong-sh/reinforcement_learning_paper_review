@@ -34,6 +34,12 @@
 - action은 xyz move와 grab, lock으로 구성
 
 ### Policy Optimization
+- 적당한 수준의 opponents와 self-play를 통한 학습 수행
+- PPO(Proximal Policy Optimization) + GAE(Generalized Advantage Estimation) + rapid(large-scale distributed RL framework) 활용
+- CTDE(centralized training decentralized execution)으로 학습하고 실행 단계에서 각각의 agent는 본인의 observation만 활용
+- ![Agent Policy Architecture](paper_images/hide-and-seek_image2.PNG)
+- 자신의 상태를 ego-centric 하게 embedding하고 나머지 agents를 embedding
+- residual self-attention 구조 활용
 
 ### Auto-Curricula And Emergent Behavior
 

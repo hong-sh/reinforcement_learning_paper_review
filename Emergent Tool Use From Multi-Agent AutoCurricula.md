@@ -55,6 +55,17 @@
 - 많은 unsupervised rl 방법과 같이, 최적화의 목표가 학습된 행동에 직접적인 이점이 아니기 때문에 이러한 행동을 평가하는 것은 무의미
 - 또한 multi-agent 환경에서 reward를 tracking 하는 것은 모호하여 ELO 혹은 Trueskill 방식으로 성능지표를 세우는 것이 조금 더 적절하지만 이것 또한 학습 성능 향상이나 개선에 대한 지표로는 보기 어려움
 #### Comparision to Intrinsic Motivation
-- intrinsic motivation은 
-
+- ![Count-Based Exploration Variants and Random Network Distillation](paper_images/hide-and-seek_image3.PNG)
+- intrinsic motivation은 sparely reward setting에서 unsupervised exploration과 skill discovery를 위한 좋은 방법
+- hide-and-seek에서 첫 번째로 count-based intrinsic motivation을 통해 exploration을 종용
+: state에 대해 visit count가 낮은 곳에 대한 exploration 종용
+- 하지만 state-representation 시 2-D Box location 정보만 반영하는 것을 보고 RND(random network distillation)을 추가 반영
+: 새로운 state에 대한 prediction error 가 높으니 그것을 보고 exploration을 종용하는 방식
+#### Transfer and Fine-Tuning As Evaluation
+- domain-specific에 적합한 agent capabilities transfer를 제안하기 위해 5가지 벤치마킹 지능(Object Counting, Lock and Return, Sequential Lock, Blueprint Construction, Shelter Construction)을 테스트
+- Pretrained in hide-and-seek, Trained from scratch, Pretrained with count-based intrinsic motivation 등으로 사전 학습 된 결과에 대해 벤치마킹 지능으로 fine tuning
+- 위 5가지 벤치마킹 지능을 Cognition and memory와 Manipulation task로 유형을 나눔
+- ![Fine-tuning results](paper_images/hide-and-seek_image4.PNG)
 ### Discussion and Future work
+- 본 논문에서는 reward function이 행위와 직접적인 연관이 없는 환경에서도 6가지의 행위가 창발되는 것을 확인
+- 하지만 아직까지도 일반적인 rl algorithm의 복잡성은 해결해야 할 문제

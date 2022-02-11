@@ -9,7 +9,7 @@
 - 하지만 이는 인간의 진화과정과 다름
 - 본 논문에서는 hide-and-seek 게임을 하는 경쟁, 적대적 환경 소개 
 - 에이전트는 오직 visibility-based reward function만 가지고 경쟁하며 에이전트의 의도에 따라 적합한 tool 사용 방법을 학습함
-- 예를들어 hider는 seeker를 피해 여러개의 forts를 활용하여 바리케이트를 구성하고 seeker는 이에 따라 사다리를 이용해 바리케이트 안으로 점프함
+- 예를들어 hider는 seeker를 피해 여러개의 forts를 활용하여 바리케이트를 구성하고 seeker는 이에 따라 비탈길을 이용해 바리케이트 안으로 점프함
 - 이는 intrinsic motivation 방법보다 더 인간적으로 해석할 수 있는 행위 도출
 - ![Emergent Skill PRogression From Multi-Agent Autocurricula](paper_images/hide-and-seek_image1.PNG)
 - 본 논문의 메인 contribution은 다음과 같음
@@ -42,7 +42,19 @@
 - residual self-attention 구조 활용
 
 ### Auto-Curricula And Emergent Behavior
+- 학습 초기에, hider와 seeker는 단순하게 도망가고 추격하는 것을 학습
+- 25백만 에피소드 이후, hider는 box와 같은 tool을 활용하여 쉘터를 만들어 숨는 방법 학습
+- 75백만 에피소드 이후, seeker는 비탈길을 이용하여 장애물을 뛰어 넘어 hider의 쉘터에 침입하는 것을 학습
+- 이후 10백만 에피소드 이후, hider는 다시 비탈길을 막기 위해 map 가장자리에 비탈길을 옮겨놓고 lock을 검
+- 380백만 에피소드 이후, seeker는 lock 걸린 비탈길에 박스를 가져가 그 박스에 올라타 쉘터를 침입하는 행위 발현
+- 결국 hider는 쉘터를 만들기 전 모든 box와 비탈길을 lock 하는 것을 학습
+- defualt model의 batch size는 64,000 1.6백만 parameters, 132.3백만 에피소드, 비탈길 방어까지 34시간 이상 학습 소요
+- optimization 단계에서는 32,000 배치 사이즈 활용하고 16,000, 8,000 배치사이즈에서는 수렴하지 않음
 
 ### Evaluation
+- 많은 unsupervised rl 방법과 같이, 최적화의 목표가 학습된 행동에 직접적인 이점이 아니기 때문에 이러한 행동을 평가하는 것은 무의미
+- 또한 multi-agent 환경에서 reward를 tracking 하는 것은 모호하여 ELO 혹은 Trueskill 방식으로 성능지표를 세우는 것이 조금 더 적절하지만 이것 또한 학습 성능 향상이나 개선에 대한 지표로는 보기 어려움
+#### Comparision to Intrinsic Motivation
+- intrinsic motivation은 
 
 ### Discussion and Future work

@@ -26,6 +26,12 @@
   - RL을 활용한 tool use 연구 설명
   
 ### Hide And Seek
+- two team physics 기반 hide-and-seek 환경에서 학습 수행
+- hider는 seeker의 시야를 피하는 것이 목적이고 seeker는 반대로 hider를 주시하는 것이 목적
+- agent는 모든 hider가 시야에 없으면 +1, 어떤 hider든 seeker에게 걸리면 -1로 팀 단위 reward를 받고(seeker의 경우 반대 케이스로 reward) map에서 너무 멀어질 경우 -10
+- episode는 240 timestep이고 처음 40% 시간 동안은 0 reward
+- 시뮬레이션은 MUJOCO 물리 엔진 기반이며 1 to 3 hider, 1 to 3 seeker, 3 to 9 randomly objects로 구성
+- action은 xyz move와 grab, lock으로 구성
 
 ### Policy Optimization
 

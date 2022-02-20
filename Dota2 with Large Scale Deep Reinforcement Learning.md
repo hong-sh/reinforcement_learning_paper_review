@@ -34,8 +34,7 @@
 - pixel on the screen을 observation으로 활용하는 대신 set of data arrays를 활용
 - 이렇게 하는 이유는 두 가지 이유가 있는데
   - 첫 번째로 visual processing 에 집중하는 대신 strategic planning and high-level decision making에 대한 연구에 집중하기 위함
-  - 두 번째로 모든 training game에서 각 frame을 rendering 하는 것이 불가능에 가까움
-  
+  - 두 번째로 모든 training game에서 각 frame을 rendering 하는 것이 불가능에 가까
 #### Optimizing the Policy
 #### Continual Transfer via Surgery
 

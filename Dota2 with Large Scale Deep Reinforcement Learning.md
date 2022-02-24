@@ -43,7 +43,12 @@
 - optimization으로 Generalized Advantage Estimation 사용
 - 학습 네트워크는 중앙에 LSTM을 두고 policy, value로 갈라지게끔 구성 
 - ![System Overview](paper_images/Dota2_image2.PNG)
-- 
+- 학습 시스템은 다음과 같고 Dota2 self-play 3experience를 활용하여 학습 수행
+- 중앙의 GPU는 비동기적으로 experience buffer를 저장하고 NCCL2를 통해 동기적으로 parameter gradient update
+- total batch size는 1 step 당 300만개이며 Adam Optimizer 활용
+- Rollout worker는 self-play game을 real-time 2배 가속으로 구동
+- self-play policy 적용 전략은 최신 policy로 전체의 80% 게임을 구동하고 20%는 old policy로 구동
+  
 #### Continual Transfer via Surgery
 
 ### Experiments and Evaluation

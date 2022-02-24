@@ -6,7 +6,7 @@
 - real-world 문제에 대한 도전은 AI 분야의 오랜 목표
 - Backgammon, Chess, Atari, Go 등의 게임을 Reinforcement Learning을 통해 해결
 - 본 논문에서는 longtime horizon, partially observation, high dimensionality observation and action 환경인 Dota 2를 Reinfocement 를 통해 해결하고자 함
-- Dota 2 agent인 OpenAI Five는 Dota 2 world champion 인 OG team에 패배했고, 이후 community에 대전 가능하도록 공개하여 7000 게임에서 99.4% 승률 달성
+- Dota 2 agent인 OpenAI Five는 Dota 2 world champion 인 OG team를 물리쳤고, 이후 community에 대전 가능하도록 공개하여 7000 게임에서 99.4% 승률 달성
 - OpenAI Five 개발 동안 계속해서 코드와 환경이 변했기 때문에 surgery라고 불리는 최소한의 loss로 훈련을 계속 지속할 수 있는 방식 제안
 
 ### Dota 2
@@ -58,7 +58,10 @@
 - 이는 Net2Net-style의 transformation이며, 본 논문에서 10달 간 학습 동안 성능저하 없이 20번 이상의 surgery 수행
   
 ### Experiments and Evaluation
+- OpenAI Five는 10개월 동안 300백만 배치사이즈(AlphaGo에 비해 50~150배 정도 큰 배치사이즈)를 가지고 150백만 파라미터를 학습
 #### Human Evaluation
+- OpenAI Five는 학습 이후, 수많은 아마추어와 프로 게이머, 프로 팀과 대전
+- 
 #### Validating Surgery with Rerun
 #### Batch Size
 #### Data Quality

@@ -37,6 +37,13 @@
   - 두 번째로 모든 training game에서 각 frame을 rendering 하는 것이 불가능에 가까움
   
 #### Optimizing the Policy
+- human experts에 대항하기 위한 policy를 찾는 것이 목적
+- 처음에는 캐릭터 사망, 자원 습득 등에 대한 reward function을 최대화 하는것을 연습하고 zero sum game을 감안해 적 팀의 reward 점수를 빼는 것 적용
+- policy는 Proximal Policy Optimization 사용
+- optimization으로 Generalized Advantage Estimation 사용
+- 학습 네트워크는 중앙에 LSTM을 두고 policy, value로 갈라지게끔 구성 
+- ![System Overview](paper_images/Dota2_image2.PNG)
+- 
 #### Continual Transfer via Surgery
 
 ### Experiments and Evaluation

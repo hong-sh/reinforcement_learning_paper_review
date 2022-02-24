@@ -50,7 +50,13 @@
 - self-play policy 적용 전략은 최신 policy로 전체의 80% 게임을 구동하고 20%는 old policy로 구동
   
 #### Continual Transfer via Surgery
-
+- 프로젝트 진행 도중, code 나 environment가 3가지 이유로 지속적으로 변화됨
+  1. 학습과 실험 중에 reward structure, observation, policy network 변경 등 학습 process를 변경시킬 일 발생 
+  2. 시간이 지남에 따라 agent의 action, observation space를 확장시킬 일이 발생
+  3. 시시 각각 Dota 2 game의 영웅, 아이템, 지도 등에 대한 업데이트 발생
+- 본 논문에서는 surgery라고 하는 새로운 환경에서 old policy를 통해 다른 크기와 의미를 가진 new policy로 성능이 저하되지 않도록 이식하는 offline operation 제안
+- 이는 Net2Net-style의 transformation이며, 본 논문에서 10달 간 학습 동안 성능저하 없이 20번 이상의 surgery 수행
+  
 ### Experiments and Evaluation
 #### Human Evaluation
 #### Validating Surgery with Rerun

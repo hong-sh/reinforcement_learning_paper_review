@@ -13,14 +13,11 @@
 - Long time horizons
   - Dota 2는 30Hz로 거의 45분간 진행
   - OpenAI Five는 4 frame 마다 action을 선택하기 때문에 20,000 정도의 step 진행 (Chess: 80 step, Go: 150 step)
-  
 - Partially-observed state
   - 각 팀은 unit이나 건물 근처의 일부만 game state로 볼 수 있음
-  
 - High-dimensional action and observation state
   - Dota 2는 10 heroes, 12 buildings, 12 non-player units, game features(runes, trees, wards, ...) 들 때문에 최대 16,000개의 observation space 존재
   - action space 또한 8,000 ~ 80,000 정도로 Chess의 경우 1,000, Go의 경우 6,000 action space
-
 - limitations from regular game
   - OpenAI Five는 117개 영웅 중 17개 활용
   - player가 일시적으로 동시에 multiple unit을 컨트롤하는 아이템 제외
@@ -75,7 +72,13 @@
   사람은 체력이 적을 경우 조심하는 경향이 있지만 OpenAI Five는 체력이 적을 때 본인에게 공격할 것을 알고 희생을 감수하는 듯한 행동을 보임
   마지막으로 OpenAI Five는 cooldown이 있는 능력에도 사람보다 훨씬 더 많이 자원을 소비 
 #### Validating Surgery with Rerun
+- 본 논문에서 제시한 surgery가 리소스를 얼마나 절약하는지 검증하기 위해 두 번째 agent를 두어 최신 버전으로만 학습을 다시 수행하고 이것을 "Rerun"이라 부름
+- ![Training in an environment under development](paper_images/Dota2_image4.PNG)
+- 그래프에서 확인 하는 것과 같이 surgery 변화보다 확연하게 성능 복구가 느린것 확인 가능 (surgery 없이 학습을 수행했다면 10달이 아니라 40달 정도 소요 예측)
+- 또 다른 surgery의 장점으로 모든 시간 구간에서 좋은 성능의 agent로 evaluation이 가능
+- Rerun의 경우 전체 OpenAI Five의 20% 근접한 리소스 소모
 #### Batch Size
+- 작은 규모의 실험에서 batch size 증가가 어느정도 효과가 있는지 평가 진행
 #### Data Quality
 #### Long term credit assignment
 

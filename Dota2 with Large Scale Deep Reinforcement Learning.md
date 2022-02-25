@@ -90,5 +90,11 @@
 #### Long term credit assignment
 
 ### Related Work
-
+- competitive games를 풀기 위한 RL 적용 도메인 설명
+- imitation learning and self-play에 대한 접근 설명
+- AlphaStar에 대한 설명
+- Deep Reinforcement Learning에 대한 설명
+- distributed training system에 대한 설명
+- surgery의 모태가 되는 Net2Net style에 대한 설명
 ### Conclusion
+- 본문 내용 요약과 함께 향후 environment 와 task가 점점 복잡해 질 것으로 scale에 대한 중요성 언급

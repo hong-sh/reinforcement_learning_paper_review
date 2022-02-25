@@ -79,6 +79,13 @@
 - Rerun의 경우 전체 OpenAI Five의 20% 근접한 리소스 소모
 #### Batch Size
 - 작은 규모의 실험에서 batch size 증가가 어느정도 효과가 있는지 평가 진행
+- batch size를 증가시킨다는 것은 두 가지 의미를 가짐
+  1. 큰 batch 를 optimize 하기 위해 GPU를 2배 이상 사용한다는 것
+  2. 2배 이상 sample을 생성해내기 위해 foward GPU와 rollout machine을 2배 이상 사용한다는 것
+- batch size를 증가시킬 때 비교할 수 있는 강력한 요소는 linear한 속도 향상 : 2배의 compute 자원을 활용했을 때 동일 skill 수준으로 1/2배 빨리 도달
+- ![Speed up equation](paper_images/Dota2_image5.PNG)
+- ![Batch size validation](paper_images/Dota2_image6.PNG)
+- Rerun의 경우 baseline의 2.5배의 batch size를 활용해 superhuman 성능에 도달하기 까지 2달 소요됐는데 baseline 수준의 batch size였을 때 5달 소요 될 것으로 예상
 #### Data Quality
 #### Long term credit assignment
 

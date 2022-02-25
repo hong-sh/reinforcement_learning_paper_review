@@ -87,6 +87,13 @@
 - ![Batch size validation](paper_images/Dota2_image6.PNG)
 - Rerun의 경우 baseline의 2.5배의 batch size를 활용해 superhuman 성능에 도달하기 까지 2달 소요됐는데 baseline 수준의 batch size였을 때 5달 소요 될 것으로 예상
 #### Data Quality
+- PPO가 on-policy 알고리즘이기 때문에 trajectories 생성을 위한 rollout에만 2시간 정도 소요
+- 2시간 rollout을 기다리고 parameter를 update하는 대신에 rollout worker의 operation을 비동기적으로 수행 : rollout worker가 최신의 parameter를 받아 rollout 후 experience buffer 업로드
+- old parameter에 대한 학습 저하를 막기 위해서 staleness라는 방식 제안
+- 이는 old version policy N을 통해 생성된 sample을 가지고 new version policy M을 학습하고자 할 때 M - N을 하는 방식
+- 또, sample data를 자주 재사용하다보면 overfitting이 발생할 수 있기 때문에 sample reuse 비율을 조절하는 방식 적용
+- ![Data Staleness and Smaple Reuse Validation](paper_images/Dota2_image9.PNG)
+- 그래프와 같이 sample reuse와 stale data가 엄청난 학습 속도 저하를 불러옴
 #### Long term credit assignment
 - Dota 2는 극도의 long time 의존 게임으로 episode 당 10,000 step 정도
 - long-term에 대한 credit assign을 위해 reward 함수 적용

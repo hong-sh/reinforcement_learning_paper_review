@@ -60,8 +60,20 @@
 ### Experiments and Evaluation
 - OpenAI Five는 10개월 동안 300백만 배치사이즈(AlphaGo에 비해 50~150배 정도 큰 배치사이즈)를 가지고 150백만 파라미터를 학습
 #### Human Evaluation
-- OpenAI Five는 학습 이후, 수많은 아마추어와 프로 게이머, 프로 팀과 대전
-- 
+- OpenAI Five는 학습 이후, 수많은 아마추어와 프로 게이머, 프로 팀과 대전하고 4월 13일에 Dota 2 world champion인 OG team과 경기하여 2-0의 결과로 승리
+- 4월 18-21 온라인 대전에서는 3,193팀과 7,257경기를 해 99.4% 승률 달성
+- Dota2에서 사람의 게임 피지컬(human dexterity)을 측정할 수 있는 요소는 reaction time으로, Dota 2의 reaction time은 217ms(일반적인 사람이 250ms 정도)
+- OpenAI Five를 학습하는 동안 agent를 자동으로 평가하기 위한 방법이 필요했고, TrueSkill rating system 적용
+  - 여기서 TrueSkill이란 Elo rating(플레이어 실력이 정규 분포 한다는 가정 하에 실력을 매기는 척도)를 개선하여 플레이어의 실력이 정규 분포 하지 않다고 가정하고 실력을 매기는 방식
+  - ![TrueSkill over the course of training for OpenAI Five](paper_images/Dota2_image3.PNG)
+  - 즉, 이 그래프를 봤을 때 각 대전 상대마다 TrueSkill score가 있고(Hand-script 100, world champions over 250) 이를 이겼을 경우 이정도의 TrueSkill score를 달성했다고 볼 수 있음
+- OpenAI Five의 playstyle에 대해서는 확실하게 정의하기 어렵지만, 학습 진행과정에 따라 게임을 접근하는 방식으로 논함
+  - 학습 초기에는 한타 위주의 전투를 일으킴. 때문에 보통 20분 내 승리하거나 45분 이상 지속될 경우 패배 
+  - agent 개선 이후 일반적인 사람의 play처럼 초반에 자원을 습득하며 영웅을 키우는 데에 집중하고 한타
+  - 마지막 agent의 경우 사람과 거의 유사했지만 몇 가지 다른점이 있었는데 
+  사람은 라인에 영웅을 배치하면 잘 안바꾸지만 OpenAI Five는 훨씬 자주 포지션을 움직이고
+  사람은 체력이 적을 경우 조심하는 경향이 있지만 OpenAI Five는 체력이 적을 때 본인에게 공격할 것을 알고 희생을 감수하는 듯한 행동을 보임
+  마지막으로 OpenAI Five는 cooldown이 있는 능력에도 사람보다 훨씬 더 많이 자원을 소비 
 #### Validating Surgery with Rerun
 #### Batch Size
 #### Data Quality

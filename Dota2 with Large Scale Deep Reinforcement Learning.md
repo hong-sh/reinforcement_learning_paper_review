@@ -88,7 +88,12 @@
 - Rerun의 경우 baseline의 2.5배의 batch size를 활용해 superhuman 성능에 도달하기 까지 2달 소요됐는데 baseline 수준의 batch size였을 때 5달 소요 될 것으로 예상
 #### Data Quality
 #### Long term credit assignment
-
+- Dota 2는 극도의 long time 의존 게임으로 episode 당 10,000 step 정도
+- long-term에 대한 credit assign을 위해 reward 함수 적용
+- ![Time horizon discounts reward](paper_images/Dota2_image7.PNG)
+- 이는 일정 시간 기준을 잡고 discount 된 reward를 받는 것으로 논문 기준 6-12분 사이에 reward를 양수로 받고 그 전과 후는 음수가 되도록 설계
+- ![Effect of horizon on agent performance](paper_images/Dota2_image8.PNG)
+- 그래프와 같이 T 설정 시간에 따라 win rate 변화를 볼 수 있고 720s 설정 시 가장 높은 win rate 달성
 ### Related Work
 - competitive games를 풀기 위한 RL 적용 도메인 설명
 - imitation learning and self-play에 대한 접근 설명

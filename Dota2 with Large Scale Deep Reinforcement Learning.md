@@ -27,7 +27,7 @@
 - OpenAI Five는 4 frame 마다 movement, attack 등으로 embedding 된 discrete action 결정
 - item이나 ability 구매, courier unit 컨트롤과 같은 부분은 hand-script logic으로 처리
 - policy는 action probability distribution을 결정하도록 설계하고 4096-unit LSTM을 활용해서 총 159 million parameter 학습
-- ![Simplified OpenAI Five Model Architecture](paper_images/Dota2_image1.PNG)
+- ![Simplified OpenAI Five Model Architecture](paper_images/Dota2_image1.png)
 - pixel on the screen을 observation으로 활용하는 대신 set of data arrays를 활용
 - 이렇게 하는 이유는 두 가지 이유가 있는데
   - 첫 번째로 visual processing 에 집중하는 대신 strategic planning and high-level decision making에 대한 연구에 집중하기 위함

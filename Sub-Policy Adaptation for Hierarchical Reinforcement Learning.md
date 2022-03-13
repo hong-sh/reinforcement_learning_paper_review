@@ -25,8 +25,20 @@
 - Option framework에 대한 설명과 최근에 continuous space 문제에 접근한 내용 언급
 
 ### Efficient Hierarchical Policy Gradients
+- 본 논문에서 첫 번째로 hierarchical policy gradient가 latent variable 변화 없이 정확하게 근사할 수 있는지 증명
+- 두 번째로 varience estimate를 줄이기 위한 unbiased baseline policy gradient 유도
+- 마지막으로 sub-policy collapse를 막으면서 모든 레벨에서 policy joint가 가능한 on-policy hierarchical policy gradient algorithm인 HiPPO 제시
 #### Approximate Hierarchical Policy Gradient
+- ![Policy Gradient Equation](paper_images/HIPPO_image3.png)
+- policy gradient 방적식은 다음과 같음
+- 여기서 1/N은 sub-policy의 개수를 의미하고 H는 time horizon을 의미함
+- 따라서 n개의 sub-policy 중 하나를 선택한 뒤 h step 만큼의 보상 기대치에 따라 policy gradient를 update 하는 것으로 파악
+- ![probability of trajectory tau](paper_images/HIPPO_image4.png)
+- trajectories에 대한 probability는 다음과 같음
+- ![lemma1](paper_images/HIPPO_image5.png)
+- 보조 정리는 다음과 같고 appendix에 수학정 증명이 나오지만 맨 뒤에 수식 관찰 값으로 치환 가능한 증명에 대해 이해하지 못함..
 #### Unbiased Sub-Policy Baseline
+
 #### Hierarchical Proximal Policy Optimization
 #### Varying Time-Commitment
 

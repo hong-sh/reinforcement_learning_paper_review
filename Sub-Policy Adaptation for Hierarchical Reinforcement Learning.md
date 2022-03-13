@@ -10,6 +10,15 @@
 - manager와 sub-policy 간 decoupling 을 보여주고 sub-policy의 특정 baseline 제시하며 stable gradient 식인 HiPPO(Hierarchical Proximal Policy Optimization) 알고리즘 제시
 
 ### Preliminaries
+- 본 논문에서 discrete-time finite-horizon discounted Markov decision process 제안
+- tuple은 다음과 같이 구성 ![HiPPO MDP](paper_images/HIPPO_image1.png)
+- S는 state set, A는 action set, P : S X A X S -> R+ 인 transition probability distribution
+- 감마는 discount factor, H는 horizon
+- ![Temporal hierarchy studied in this paper](paper_images/HIPPO_image2.png)
+- zt는 manager policy에 대한 pi_theta(zt | st) sample
+- p라는 정적 시간 구간을 정하고 kp 부터 (k+1)p - 1 까지 구간에서 zkp에 따른 sub-policy pi_theta(at | st, zkp)를 통한 at sampling
+- 본 논문에서는 hierarchical policy를 학습하고 얼마나 효율적으로 모든 레벨에서 이를 적용할 수 있는지 연구
+- high-level policy(manager)와 low-level policy(sub-policy)가 존재하고 n sub-policy에 대해 선택할 수 있는 z = Zn에 중점을 둠
 
 ### Related Work
 

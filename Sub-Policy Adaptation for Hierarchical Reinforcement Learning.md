@@ -21,6 +21,8 @@
 - high-level policy(manager)와 low-level policy(sub-policy)가 존재하고 n sub-policy에 대해 선택할 수 있는 z = Zn에 중점을 둠
 
 ### Related Work
+- 전통적인 HRL에 대한 설명과 최근에 continuous space 문제에 접근한 내용 언급
+- Option framework에 대한 설명과 최근에 continuous space 문제에 접근한 내용 언급
 
 ### Efficient Hierarchical Policy Gradients
 #### Approximate Hierarchical Policy Gradient

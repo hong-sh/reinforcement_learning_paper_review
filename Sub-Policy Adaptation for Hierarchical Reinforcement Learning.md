@@ -46,7 +46,17 @@
 - ![Eq1](paper_images/HIPPO_image7.PNG)
 
 #### Hierarchical Proximal Policy Optimization
+- appropriate step size를 크게 하는 것은 policy learning stable에 ciritical
+- TRPO 알고리즘은 KL-divergence를 통해 이러한 점을 해결하지만 Hierarchi 구조는 KL-divergence로 표현할 수 없는 복잡한 분산으로 이루어짐
+- 때문에 계층적 구조에서는 PPO가 더 안정적이고 계산 효율적
+- PPO Objective function에 계층적 구조를 적용하면 다음과 같음
+- ![HiPPO Objective Function](paper_images/HIPPO_image8.PNG)
+
 #### Varying Time-Commitment
+- 대부분의 계층적 구조가 lower-level skill에 대해 fixed time-commitment을 부여하거나 option framework 활용
+- 본 논문에서는 fixed distribution time 구간 중 샘플링 된 무작위 시간으로 새로운 task 결정 제시
+- 알고리즘의 sudo 코드는 다음과 같음
+- ![HiPPO Algorithm](paper_images/HIPPO_image9.PNG)
 
 ### Experiments
 #### Tasks

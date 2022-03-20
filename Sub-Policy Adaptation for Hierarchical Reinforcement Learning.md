@@ -38,6 +38,12 @@
 - ![lemma1](paper_images/HIPPO_image5.png)
 - 보조 정리는 다음과 같고 appendix에 수학정 증명이 나오지만 맨 뒤에 수식 관찰 값으로 치환 가능한 증명에 대해 이해하지 못함..
 #### Unbiased Sub-Policy Baseline
+- log-likelihood ratio 트릭을 통한 policy gradient는 variance가 큼
+- 이를 줄이기 위해 return에서 추정치를 빼는 것이 일반적인 방법
+- 본 논문에서는 approximate gradient에서 unbiase한 baseline 제시
+- ![lemma2](paper_images/HIPPO_image6.PNG)
+- lemma1과 lemma2를 적용하여 최종적인 policy gradient expression을 이끌어 낼 수 있음
+- ![Eq1](paper_images/HIPPO_image7.PNG)
 
 #### Hierarchical Proximal Policy Optimization
 #### Varying Time-Commitment

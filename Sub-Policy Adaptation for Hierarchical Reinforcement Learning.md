@@ -44,14 +44,12 @@
 - ![lemma2](paper_images/HIPPO_image6.PNG)
 - lemma1과 lemma2를 적용하여 최종적인 policy gradient expression을 이끌어 낼 수 있음
 - ![Eq1](paper_images/HIPPO_image7.PNG)
-
 #### Hierarchical Proximal Policy Optimization
 - appropriate step size를 크게 하는 것은 policy learning stable에 ciritical
 - TRPO 알고리즘은 KL-divergence를 통해 이러한 점을 해결하지만 Hierarchi 구조는 KL-divergence로 표현할 수 없는 복잡한 분산으로 이루어짐
 - 때문에 계층적 구조에서는 PPO가 더 안정적이고 계산 효율적
 - PPO Objective function에 계층적 구조를 적용하면 다음과 같음
 - ![HiPPO Objective Function](paper_images/HIPPO_image8.PNG)
-
 #### Varying Time-Commitment
 - 대부분의 계층적 구조가 lower-level skill에 대해 fixed time-commitment을 부여하거나 option framework 활용
 - 본 논문에서는 fixed distribution time 구간 중 샘플링 된 무작위 시간으로 새로운 task 결정 제시
@@ -81,6 +79,16 @@
 - 본 논문에서는 계층적 구조 state-of-the-art methods인 HIRO, Option-Critic, MLSH, HierVPG와 비교
 - Block Half Cheetah 환경을 제외하고는 모두 HiPPO가 우세
 #### Robustness to Dynamics Perturbations
+- Snake Gather와 Ant Gather 환경을 수정해 HiPPO가 물리적 변경에 robustness인지 검증
+- ![Zero-shot transfer performance](paper_images/HIPPO_image14.png)
+- 8개 task 중 6개 task에서 랜덤 time-commitment이 좋은 성능을 보임
+#### Adaptation of Pre-Trained Skills
+- ![Benefit of adapting some given skills](paper_images/HIPPO_image15.png)
+- pre-trained skills를 활용했을 때 HiPPO가 다른 알고리즘, HiPPO from scratch 보다 좋은 성능을 보임
 #### Skill Diversity Assumption
-
+- ![Empirical evaluation of Lemma 1](paper_images/HIPPO_image16.png)
+- sub-policies가 다양하다는 가정으로 유도한 stable gradient 수식에 대한 경험적 검증 시도
+- 다른 sub-policies에 대한 maximum probability의 cosine 유사도가 1 안팎을 보임
 ### Conclusions and Future work
+- 본 논문에서 hierarchical policy gradient 근사식을 유도하고 새로운 method인 HiPPO 제시
+- 실험은 downstream environments에 대해 pretrained skill을 최적화하고 unsupervised pre-training 없이 skill 학습이 가능함을 검증

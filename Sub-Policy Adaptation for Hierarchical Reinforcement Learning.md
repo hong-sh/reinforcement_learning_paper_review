@@ -59,8 +59,19 @@
 - ![HiPPO Algorithm](paper_images/HIPPO_image9.PNG)
 
 ### Experiments
+- 본 논문에서 다음과 같은 대답을 얻기 위한 실험을 설계
+1. 밑 바닥부터 학습 시 flat policy와 비교하여 HiPPO의 성능 비교
+2. 학습 environment 변경에 대한 policy robustness 검증
+3. 미리 학습 된 skill에 대한 적응
+4. 기술 다양성에 대한 가정 검증
 #### Tasks
+- 다양한 robotic locomotion과 navigation task에서 본 논문의 접근 평가
+- ![HiPPO Envrionments](paper_images/HIPPO_image10.PNG)
+- 2a-2b는 Hopper와 Half-Cheetah robot이 랜던한 높이의 벽들을 점프하기 위해 보행 학습을 위한 Environment
+- 2c-2d는 LIDAR-type sensor를 가지고 bomb(red ball)을 피해 apple(green ball)을 모으는 Environment
+이는 sparse reward 환경에서 perception, locomotion, higher-level planning 능력을 계층적 구조로 학습하기 위한 과제
 #### Learning From Scratch and Time-Commitment
+- 
 #### Comparison to Other Methods
 #### Robustness to Dynamics Perturbations
 #### Skill Diversity Assumption

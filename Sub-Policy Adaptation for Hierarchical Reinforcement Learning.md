@@ -72,21 +72,21 @@
 - ![Analysis of different time-commitment](paper_images/HIPPO_image11.png)
 - 위의 그림은 밑바닥 부터 학습 시 HiPPO가 flat PPO 보다 학습 속도가 더 빠름을 나타냄
 - action 반복이 있는 PPO가 HiPPO보다 수렴이 늦은 것으로 보아 HiPPO가 단지 시간 상관관계에 대한 이점만 가지고 있지 않음
-- ![Using a skill-conditioned baseline](paper_images/HIPPO_image12.png)
+- ![Using a skill-conditioned baseline](paper_images/HiPPO_image12.png)
 - skill conditioned baseline을 활용했을 때 single baseline보다 좋은 성능을 보임
 #### Comparison to Other Methods
-- ![Comparison of HiPPO](paper_images/HIPPO_image13.png)
+- ![Comparison of HiPPO](paper_images/HiPPO_image13.png)
 - 본 논문에서는 계층적 구조 state-of-the-art methods인 HIRO, Option-Critic, MLSH, HierVPG와 비교
 - Block Half Cheetah 환경을 제외하고는 모두 HiPPO가 우세
 #### Robustness to Dynamics Perturbations
 - Snake Gather와 Ant Gather 환경을 수정해 HiPPO가 물리적 변경에 robustness인지 검증
-- ![Zero-shot transfer performance](paper_images/HIPPO_image14.png)
+- ![Zero-shot transfer performance](paper_images/HiPPO_image14.png)
 - 8개 task 중 6개 task에서 랜덤 time-commitment이 좋은 성능을 보임
 #### Adaptation of Pre-Trained Skills
-- ![Benefit of adapting some given skills](paper_images/HIPPO_image15.png)
+- ![Benefit of adapting some given skills](paper_images/HiPPO_image15.png)
 - pre-trained skills를 활용했을 때 HiPPO가 다른 알고리즘, HiPPO from scratch 보다 좋은 성능을 보임
 #### Skill Diversity Assumption
-- ![Empirical evaluation of Lemma 1](paper_images/HIPPO_image16.png)
+- ![Empirical evaluation of Lemma 1](paper_images/HiPPO_image16.png)
 - sub-policies가 다양하다는 가정으로 유도한 stable gradient 수식에 대한 경험적 검증 시도
 - 다른 sub-policies에 대한 maximum probability의 cosine 유사도가 1 안팎을 보임
 ### Conclusions and Future work

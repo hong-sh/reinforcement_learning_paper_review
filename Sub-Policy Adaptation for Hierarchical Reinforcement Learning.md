@@ -66,13 +66,20 @@
 4. 기술 다양성에 대한 가정 검증
 #### Tasks
 - 다양한 robotic locomotion과 navigation task에서 본 논문의 접근 평가
-- ![HiPPO Envrionments](paper_images/HIPPO_image10.PNG)
+- ![HiPPO Envrionments](paper_images/HIPPO_image10.png)
 - 2a-2b는 Hopper와 Half-Cheetah robot이 랜던한 높이의 벽들을 점프하기 위해 보행 학습을 위한 Environment
 - 2c-2d는 LIDAR-type sensor를 가지고 bomb(red ball)을 피해 apple(green ball)을 모으는 Environment
 이는 sparse reward 환경에서 perception, locomotion, higher-level planning 능력을 계층적 구조로 학습하기 위한 과제
 #### Learning From Scratch and Time-Commitment
-- 
+- ![Analysis of different time-commitment](paper_images/HIPPO_image11.png)
+- 위의 그림은 밑바닥 부터 학습 시 HiPPO가 flat PPO 보다 학습 속도가 더 빠름을 나타냄
+- action 반복이 있는 PPO가 HiPPO보다 수렴이 늦은 것으로 보아 HiPPO가 단지 시간 상관관계에 대한 이점만 가지고 있지 않음
+- ![Using a skill-conditioned baseline](paper_images/HIPPO_image12.png)
+- skill conditioned baseline을 활용했을 때 single baseline보다 좋은 성능을 보임
 #### Comparison to Other Methods
+- ![Comparison of HiPPO](paper_images/HIPPO_image13.png)
+- 본 논문에서는 계층적 구조 state-of-the-art methods인 HIRO, Option-Critic, MLSH, HierVPG와 비교
+- Block Half Cheetah 환경을 제외하고는 모두 HiPPO가 우세
 #### Robustness to Dynamics Perturbations
 #### Skill Diversity Assumption
 
